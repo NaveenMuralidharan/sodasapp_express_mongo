@@ -3,7 +3,7 @@ require("dotenv").config()//load env variabled
 const express = require("express")
 const morgan = require("morgan")
 const methodOverride = require("method-override")
-const SodaRouter = require("./controllers/soda")
+const SodaRouter = require("./controllers/soda")//import router
 
  ////////////////////////////
  //CREATE our express application object//
@@ -17,14 +17,15 @@ const SodaRouter = require("./controllers/soda")
  app.use(methodOverride("_method"))
  app.use(express.urlencoded({extended: true}))
  app.use(express.static("public"))
-
+ app.use("/soda", SodaRouter)
  
 //Routes and routers//
+
 app.get("/", (req, res)=> {
     res.send("Server is running")
 })
 
-app.use("/soda", SodaRouter)
+
 
  //////////////////////
  //server listener//
