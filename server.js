@@ -16,7 +16,7 @@ const SodaRouter = require("./controllers/soda")//import router
  app.use(morgan("tiny"))//logging
  app.use(methodOverride("_method"))
  app.use(express.urlencoded({extended: true}))
- app.use(express.static("public"))
+ app.use("/static",express.static("public"))
  app.use("/soda", SodaRouter)
  
 //Routes and routers//

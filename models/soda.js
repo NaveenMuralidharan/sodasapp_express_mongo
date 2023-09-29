@@ -17,11 +17,15 @@ const Soda = {
         {name: "Root Beer", color: "Brown", readyToEat: false},
     ],
     getAll: function(){
-        console.log(this.data)
+        // console.log(this.data)
         return this.data
     },
     getOne: function(index){
-        return this.data(index)
+        // console.log(this.data[index])
+        return this.data[index]
+    },
+    create: function(newSoda){
+        this.data.push(newSoda)
     }
 }
 
