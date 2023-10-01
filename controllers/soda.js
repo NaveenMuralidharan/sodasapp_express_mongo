@@ -41,6 +41,27 @@ router.post("/", (req, res)=>{
     res.redirect("/soda")
 })
 
+//-------------
+//EDIT route
+//------------
+router.get("/:id/edit", (req, res)=>{
+    res.render("soda/edit.ejs", {
+        soda: Soda.getOne(req.params.id),
+        index: req.params.id
+    })
+})
+//---------------
+
+
+//------------
+//Update route-PUT request
+//-----------------
+router.put("/:id", (req, res)=>{
+    req.body.readyToEat = req.body.readyToEat ? true : false
+    Soda.update(req.params.id, req.body)
+    res.redirect("/soda")
+} )
+
 
 //----------------
 //SHOW ROUTE
@@ -48,7 +69,8 @@ router.post("/", (req, res)=>{
 router.get("/:id", (req, res)=>{
 
     res.render("soda/show.ejs", {
-        soda: Soda.getOne(req.params.id)
+        soda: Soda.getOne(req.params.id),
+        index: req.params.id
     })
 
 })

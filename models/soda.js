@@ -26,6 +26,9 @@ const Soda = {
     },
     create: function(newSoda){
         this.data.push(newSoda)
+    },
+    update: function(index, updates){
+        this.data[index]= updates
     }
 }
 

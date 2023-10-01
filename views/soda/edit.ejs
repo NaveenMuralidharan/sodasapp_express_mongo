@@ -1,0 +1,12 @@
+<%- include("../partials/head.ejs") %>
+
+<h1>Form to update <%= soda.name %></h1>
+
+<form action="/soda/<%= index %>?_method=PUT" method="post">
+    <input type="text" name="name" placeholder="Enter soda name" value = "<%= soda.name %>">
+    <input type="text" name="color" placeholder="Enter soda color" value=" <%= soda.color %>">
+    <input type="checkbox" name="readyToEat"
+    <%= soda.readyToEat ? "checked" : "" %>
+    >
+    <input type="submit" value="Update Soda">
+</form>
